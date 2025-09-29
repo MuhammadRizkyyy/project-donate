@@ -1,0 +1,1298 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DARIKITA - Platform Donasi Terpercaya</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #f0f9f0 0%,
+          #e8f5e8 50%,
+          #d4f1d4 100%
+        );
+      }
+
+      .hero-bg {
+        background: linear-gradient(
+            135deg,
+            rgba(34, 197, 94, 0.9),
+            rgba(16, 185, 129, 0.8)
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600"><defs><pattern id="hearts" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="30" r="3" fill="rgba(255,255,255,0.1)"/><circle cx="20" cy="70" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="80" cy="80" r="2.5" fill="rgba(255,255,255,0.06)"/></pattern></defs><rect width="100%" height="100%" fill="url(%23hearts)"/></svg>');
+        background-size: cover;
+        background-position: center;
+      }
+
+      .card-hover:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .fade-in {
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      .slide-up {
+        animation: slideUp 0.6s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideUp {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .counter {
+        font-variant-numeric: tabular-nums;
+      }
+    </style>
+  </head>
+  <body class="bg-white">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <div class="flex-shrink-0 flex items-center">
+              <div
+                class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-2xl font-bold text-green-600">DARIKITA</span>
+            </div>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="#tentang"
+                class="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                >Tentang Kami</a
+              >
+              <a
+                href="#kontak"
+                class="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                >Kontak</a
+              >
+              <a
+                href="login.html"
+                class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-600 transition-colors"
+                >Masuk</a
+              >
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobileMenuBtn"
+              class="text-gray-700 hover:text-green-600 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="#tentang"
+            class="block px-3 py-2 text-gray-700 hover:text-green-600 transition-colors"
+            >Tentang Kami</a
+          >
+          <a
+            href="#kontak"
+            class="block px-3 py-2 text-gray-700 hover:text-green-600 transition-colors"
+            >Kontak</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+            >Masuk</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="hero-bg min-h-screen flex items-center justify-center text-white"
+    >
+      <div class="max-w-4xl mx-auto text-center px-4 fade-in">
+        <h1 class="text-5xl md:text-7xl font-bold mb-6">
+          Lebih <span class="text-green-200">Dekat</span><br />
+          Lebih <span class="text-green-200">Tepat</span><br />
+          Lebih <span class="text-green-200">Bermanfaat</span>
+        </h1>
+        <p class="text-xl md:text-2xl mb-8 text-green-100">
+          Wujudkan kebaikan bersama DARIKITA. Platform donasi terpercaya untuk
+          Indonesia yang lebih baik.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <button
+            class="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-all transform hover:scale-105"
+          >
+            Donasi Sekarang
+          </button>
+          <button
+            class="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-white hover:text-green-600 transition-all"
+          >
+            Pelajari Lebih Lanjut
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+          <div class="slide-up">
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+              <div
+                class="text-4xl font-bold text-green-600 counter mb-2"
+                data-target="2500000000"
+              >
+                0
+              </div>
+              <p class="text-gray-600 font-medium">Donasi Terkumpul</p>
+              <p class="text-sm text-gray-500">Rupiah</p>
+            </div>
+          </div>
+          <div class="slide-up" style="animation-delay: 0.2s">
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+              <div
+                class="text-4xl font-bold text-green-600 counter mb-2"
+                data-target="125000"
+              >
+                0
+              </div>
+              <p class="text-gray-600 font-medium">Jumlah Donatur</p>
+              <p class="text-sm text-gray-500">Orang</p>
+            </div>
+          </div>
+          <div class="slide-up" style="animation-delay: 0.4s">
+            <div class="bg-white rounded-xl p-8 shadow-lg">
+              <div
+                class="text-4xl font-bold text-green-600 counter mb-2"
+                data-target="450"
+              >
+                0
+              </div>
+              <p class="text-gray-600 font-medium">Program Terdanai</p>
+              <p class="text-sm text-gray-500">Program</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">Program Bantuan</h2>
+          <p class="text-xl text-gray-600">
+            Berbagai program kebaikan untuk Indonesia
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Program 1 -->
+          <div
+            class="card-hover bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 flex flex-col h-full"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center relative overflow-hidden"
+            >
+              <!-- School and children illustration -->
+              <svg
+                class="w-full h-full absolute inset-0"
+                viewBox="0 0 400 300"
+                fill="none"
+              >
+                <!-- School building -->
+                <rect
+                  x="100"
+                  y="120"
+                  width="200"
+                  height="120"
+                  fill="white"
+                  opacity="0.9"
+                />
+                <polygon
+                  points="100,120 200,80 300,120"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <rect
+                  x="180"
+                  y="180"
+                  width="40"
+                  height="60"
+                  fill="#3B82F6"
+                  opacity="0.7"
+                />
+                <rect
+                  x="120"
+                  y="140"
+                  width="30"
+                  height="30"
+                  fill="#3B82F6"
+                  opacity="0.6"
+                />
+                <rect
+                  x="170"
+                  y="140"
+                  width="30"
+                  height="30"
+                  fill="#3B82F6"
+                  opacity="0.6"
+                />
+                <rect
+                  x="220"
+                  y="140"
+                  width="30"
+                  height="30"
+                  fill="#3B82F6"
+                  opacity="0.6"
+                />
+                <rect
+                  x="270"
+                  y="140"
+                  width="30"
+                  height="30"
+                  fill="#3B82F6"
+                  opacity="0.6"
+                />
+                <!-- Children figures -->
+                <circle cx="80" cy="200" r="8" fill="white" opacity="0.8" />
+                <rect
+                  x="76"
+                  y="208"
+                  width="8"
+                  height="20"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <circle cx="320" cy="200" r="8" fill="white" opacity="0.8" />
+                <rect
+                  x="316"
+                  y="208"
+                  width="8"
+                  height="20"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <!-- Books -->
+                <rect
+                  x="60"
+                  y="220"
+                  width="15"
+                  height="3"
+                  fill="white"
+                  opacity="0.7"
+                />
+                <rect
+                  x="62"
+                  y="217"
+                  width="15"
+                  height="3"
+                  fill="white"
+                  opacity="0.7"
+                />
+                <rect
+                  x="325"
+                  y="220"
+                  width="15"
+                  height="3"
+                  fill="white"
+                  opacity="0.7"
+                />
+                <rect
+                  x="327"
+                  y="217"
+                  width="15"
+                  height="3"
+                  fill="white"
+                  opacity="0.7"
+                />
+              </svg>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex items-center mb-2">
+                <div
+                  class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mr-2"
+                >
+                  <span class="text-xs font-bold text-blue-600">YP</span>
+                </div>
+                <span class="text-sm text-gray-500"
+                  >Yayasan Pendidikan Nusantara</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Bantuan Pendidikan Anak Bangsa
+              </h3>
+              <p class="text-gray-600 mb-4 text-sm flex-grow">
+                Memberikan akses pendidikan berkualitas untuk anak-anak
+                Indonesia
+              </p>
+
+              <!-- Progress Bar -->
+              <div class="mb-4 mt-auto">
+                <div class="flex justify-between text-sm text-gray-600 mb-1">
+                  <span>Terkumpul: Rp 45.2M</span>
+                  <span>Target: Rp 100M</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="bg-blue-500 h-2 rounded-full"
+                    style="width: 45.2%"
+                  ></div>
+                </div>
+                <div class="text-xs text-gray-500 mt-1">45.2% tercapai</div>
+              </div>
+
+              <button
+                class="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition-colors"
+              >
+                Donasi Sekarang
+              </button>
+            </div>
+          </div>
+
+          <!-- Program 2 -->
+          <div
+            class="card-hover bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 flex flex-col h-full"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-red-400 to-red-600 flex items-center justify-center relative overflow-hidden"
+            >
+              <!-- Disaster relief illustration -->
+              <svg
+                class="w-full h-full absolute inset-0"
+                viewBox="0 0 400 300"
+                fill="none"
+              >
+                <!-- Flood/disaster scene -->
+                <path
+                  d="M0 180 Q50 160 100 170 Q150 180 200 165 Q250 150 300 160 Q350 170 400 165 L400 300 L0 300 Z"
+                  fill="white"
+                  opacity="0.3"
+                />
+                <!-- Damaged houses -->
+                <rect
+                  x="80"
+                  y="120"
+                  width="40"
+                  height="50"
+                  fill="white"
+                  opacity="0.6"
+                  transform="rotate(-5 100 145)"
+                />
+                <polygon
+                  points="80,120 100,100 120,120"
+                  fill="white"
+                  opacity="0.5"
+                  transform="rotate(-5 100 110)"
+                />
+                <rect
+                  x="180"
+                  y="110"
+                  width="40"
+                  height="60"
+                  fill="white"
+                  opacity="0.6"
+                  transform="rotate(3 200 140)"
+                />
+                <polygon
+                  points="180,110 200,90 220,110"
+                  fill="white"
+                  opacity="0.5"
+                  transform="rotate(3 200 100)"
+                />
+                <rect
+                  x="280"
+                  y="130"
+                  width="40"
+                  height="40"
+                  fill="white"
+                  opacity="0.6"
+                  transform="rotate(-8 300 150)"
+                />
+                <polygon
+                  points="280,130 300,110 320,130"
+                  fill="white"
+                  opacity="0.5"
+                  transform="rotate(-8 300 120)"
+                />
+                <!-- Relief truck -->
+                <rect
+                  x="150"
+                  y="200"
+                  width="60"
+                  height="25"
+                  rx="5"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <circle cx="165" cy="235" r="8" fill="white" opacity="0.7" />
+                <circle cx="195" cy="235" r="8" fill="white" opacity="0.7" />
+                <!-- Red cross symbol -->
+                <rect
+                  x="170"
+                  y="205"
+                  width="4"
+                  height="15"
+                  fill="#DC2626"
+                  opacity="0.9"
+                />
+                <rect
+                  x="163"
+                  y="209"
+                  width="18"
+                  height="4"
+                  fill="#DC2626"
+                  opacity="0.9"
+                />
+              </svg>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex items-center mb-2">
+                <div
+                  class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center mr-2"
+                >
+                  <span class="text-xs font-bold text-red-600">PMI</span>
+                </div>
+                <span class="text-sm text-gray-500"
+                  >Palang Merah Indonesia</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Bantuan Bencana Alam
+              </h3>
+              <p class="text-gray-600 mb-4 text-sm flex-grow">
+                Tanggap darurat dan pemulihan pasca bencana alam
+              </p>
+
+              <!-- Progress Bar -->
+              <div class="mb-4 mt-auto">
+                <div class="flex justify-between text-sm text-gray-600 mb-1">
+                  <span>Terkumpul: Rp 78.5M</span>
+                  <span>Target: Rp 120M</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="bg-red-500 h-2 rounded-full"
+                    style="width: 65.4%"
+                  ></div>
+                </div>
+                <div class="text-xs text-gray-500 mt-1">65.4% tercapai</div>
+              </div>
+
+              <button
+                class="w-full bg-red-500 text-white py-2 rounded-lg hover:bg-red-600 transition-colors"
+              >
+                Donasi Sekarang
+              </button>
+            </div>
+          </div>
+
+          <!-- Program 3 -->
+          <div
+            class="card-hover bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 flex flex-col h-full"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center relative overflow-hidden"
+            >
+              <!-- Hospital and healthcare illustration -->
+              <svg
+                class="w-full h-full absolute inset-0"
+                viewBox="0 0 400 300"
+                fill="none"
+              >
+                <!-- Hospital building -->
+                <rect
+                  x="120"
+                  y="100"
+                  width="160"
+                  height="140"
+                  fill="white"
+                  opacity="0.9"
+                />
+                <rect
+                  x="180"
+                  y="80"
+                  width="40"
+                  height="20"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <!-- Hospital cross -->
+                <rect
+                  x="190"
+                  y="130"
+                  width="8"
+                  height="40"
+                  fill="#10B981"
+                  opacity="0.9"
+                />
+                <rect
+                  x="174"
+                  y="142"
+                  width="40"
+                  height="8"
+                  fill="#10B981"
+                  opacity="0.9"
+                />
+                <!-- Windows -->
+                <rect
+                  x="140"
+                  y="120"
+                  width="20"
+                  height="20"
+                  fill="#10B981"
+                  opacity="0.6"
+                />
+                <rect
+                  x="240"
+                  y="120"
+                  width="20"
+                  height="20"
+                  fill="#10B981"
+                  opacity="0.6"
+                />
+                <rect
+                  x="140"
+                  y="160"
+                  width="20"
+                  height="20"
+                  fill="#10B981"
+                  opacity="0.6"
+                />
+                <rect
+                  x="240"
+                  y="160"
+                  width="20"
+                  height="20"
+                  fill="#10B981"
+                  opacity="0.6"
+                />
+                <rect
+                  x="140"
+                  y="200"
+                  width="20"
+                  height="20"
+                  fill="#10B981"
+                  opacity="0.6"
+                />
+                <rect
+                  x="240"
+                  y="200"
+                  width="20"
+                  height="20"
+                  fill="#10B981"
+                  opacity="0.6"
+                />
+                <!-- Entrance -->
+                <rect
+                  x="185"
+                  y="200"
+                  width="30"
+                  height="40"
+                  fill="#10B981"
+                  opacity="0.7"
+                />
+                <!-- Ambulance -->
+                <rect
+                  x="50"
+                  y="210"
+                  width="50"
+                  height="20"
+                  rx="3"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <circle cx="65" cy="240" r="6" fill="white" opacity="0.7" />
+                <circle cx="85" cy="240" r="6" fill="white" opacity="0.7" />
+                <rect
+                  x="62"
+                  y="215"
+                  width="3"
+                  height="10"
+                  fill="#10B981"
+                  opacity="0.9"
+                />
+                <rect
+                  x="57"
+                  y="218"
+                  width="13"
+                  height="3"
+                  fill="#10B981"
+                  opacity="0.9"
+                />
+                <!-- People -->
+                <circle cx="320" cy="200" r="6" fill="white" opacity="0.8" />
+                <rect
+                  x="317"
+                  y="206"
+                  width="6"
+                  height="15"
+                  fill="white"
+                  opacity="0.8"
+                />
+              </svg>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex items-center mb-2">
+                <div
+                  class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center mr-2"
+                >
+                  <span class="text-xs font-bold text-green-600">RS</span>
+                </div>
+                <span class="text-sm text-gray-500"
+                  >Rumah Sakit Harapan Sehat</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Kesehatan untuk Semua
+              </h3>
+              <p class="text-gray-600 mb-4 text-sm flex-grow">
+                Layanan kesehatan gratis dan bantuan medis
+              </p>
+
+              <!-- Progress Bar -->
+              <div class="mb-4 mt-auto">
+                <div class="flex justify-between text-sm text-gray-600 mb-1">
+                  <span>Terkumpul: Rp 32.8M</span>
+                  <span>Target: Rp 80M</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="bg-green-500 h-2 rounded-full"
+                    style="width: 41%"
+                  ></div>
+                </div>
+                <div class="text-xs text-gray-500 mt-1">41% tercapai</div>
+              </div>
+
+              <button
+                class="w-full bg-green-500 text-white py-2 rounded-lg hover:bg-green-600 transition-colors"
+              >
+                Donasi Sekarang
+              </button>
+            </div>
+          </div>
+
+          <!-- Program 4 -->
+          <div
+            class="card-hover bg-white rounded-xl shadow-lg overflow-hidden transition-all duration-300 flex flex-col h-full"
+          >
+            <div
+              class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center relative overflow-hidden"
+            >
+              <!-- Community care illustration -->
+              <svg
+                class="w-full h-full absolute inset-0"
+                viewBox="0 0 400 300"
+                fill="none"
+              >
+                <!-- Community center/house -->
+                <rect
+                  x="150"
+                  y="120"
+                  width="100"
+                  height="80"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <polygon
+                  points="150,120 200,90 250,120"
+                  fill="white"
+                  opacity="0.7"
+                />
+                <rect
+                  x="185"
+                  y="160"
+                  width="30"
+                  height="40"
+                  fill="#8B5CF6"
+                  opacity="0.7"
+                />
+                <rect
+                  x="160"
+                  y="140"
+                  width="15"
+                  height="15"
+                  fill="#8B5CF6"
+                  opacity="0.6"
+                />
+                <rect
+                  x="225"
+                  y="140"
+                  width="15"
+                  height="15"
+                  fill="#8B5CF6"
+                  opacity="0.6"
+                />
+                <!-- People helping each other -->
+                <circle cx="100" cy="180" r="12" fill="white" opacity="0.8" />
+                <rect
+                  x="94"
+                  y="192"
+                  width="12"
+                  height="25"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <circle cx="120" cy="185" r="10" fill="white" opacity="0.8" />
+                <rect
+                  x="115"
+                  y="195"
+                  width="10"
+                  height="20"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <circle cx="300" cy="180" r="12" fill="white" opacity="0.8" />
+                <rect
+                  x="294"
+                  y="192"
+                  width="12"
+                  height="25"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <circle cx="280" cy="185" r="10" fill="white" opacity="0.8" />
+                <rect
+                  x="275"
+                  y="195"
+                  width="10"
+                  height="20"
+                  fill="white"
+                  opacity="0.8"
+                />
+                <!-- Heart symbol in center -->
+                <path
+                  d="M200 140 C195 135, 185 135, 185 145 C185 135, 175 135, 170 140 C170 150, 185 165, 200 175 C215 165, 230 150, 230 140 C225 135, 215 135, 215 145 C215 135, 205 135, 200 140 Z"
+                  fill="white"
+                  opacity="0.9"
+                />
+                <!-- Food/aid boxes -->
+                <rect
+                  x="80"
+                  y="210"
+                  width="15"
+                  height="10"
+                  fill="white"
+                  opacity="0.7"
+                />
+                <rect
+                  x="100"
+                  y="210"
+                  width="15"
+                  height="10"
+                  fill="white"
+                  opacity="0.7"
+                />
+                <rect
+                  x="285"
+                  y="210"
+                  width="15"
+                  height="10"
+                  fill="white"
+                  opacity="0.7"
+                />
+                <rect
+                  x="305"
+                  y="210"
+                  width="15"
+                  height="10"
+                  fill="white"
+                  opacity="0.7"
+                />
+              </svg>
+            </div>
+            <div class="p-6 flex flex-col flex-grow">
+              <div class="flex items-center mb-2">
+                <div
+                  class="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center mr-2"
+                >
+                  <span class="text-xs font-bold text-purple-600">YS</span>
+                </div>
+                <span class="text-sm text-gray-500"
+                  >Yayasan Sosial Peduli Kasih</span
+                >
+              </div>
+              <h3 class="text-xl font-bold text-gray-800 mb-2">
+                Peduli Sesama
+              </h3>
+              <p class="text-gray-600 mb-4 text-sm flex-grow">
+                Bantuan sosial untuk masyarakat kurang mampu
+              </p>
+
+              <!-- Progress Bar -->
+              <div class="mb-4 mt-auto">
+                <div class="flex justify-between text-sm text-gray-600 mb-1">
+                  <span>Terkumpul: Rp 56.3M</span>
+                  <span>Target: Rp 75M</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2">
+                  <div
+                    class="bg-purple-500 h-2 rounded-full"
+                    style="width: 75.1%"
+                  ></div>
+                </div>
+                <div class="text-xs text-gray-500 mt-1">75.1% tercapai</div>
+              </div>
+
+              <button
+                class="w-full bg-purple-500 text-white py-2 rounded-lg hover:bg-purple-600 transition-colors"
+              >
+                Donasi Sekarang
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why DARIKITA Section -->
+    <section class="py-16 gradient-bg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-4xl font-bold text-gray-800 mb-4">
+            Mengapa Harus DARIKITA?
+          </h2>
+          <p class="text-xl text-gray-600">
+            Keunggulan yang membuat kami berbeda
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Jangkauan Luas</h3>
+            <p class="text-gray-600">
+              Menjangkau seluruh Indonesia dari Sabang sampai Merauke
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Praktis</h3>
+            <p class="text-gray-600">
+              Donasi mudah kapan saja dan dimana saja melalui platform digital
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Tepat Sasaran</h3>
+            <p class="text-gray-600">
+              Donasi langsung tersalurkan kepada yang membutuhkan
+            </p>
+          </div>
+
+          <div class="text-center">
+            <div
+              class="w-20 h-20 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-4"
+            >
+              <svg
+                class="w-10 h-10 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
+                ></path>
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Transparan</h3>
+            <p class="text-gray-600">
+              Laporan penggunaan dana yang jelas dan dapat dipertanggungjawabkan
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-green-600 text-white">
+      <div class="max-w-4xl mx-auto text-center px-4">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">
+          Kebaikan dalam <span class="text-green-200">Genggaman</span>
+        </h2>
+        <h3 class="text-3xl md:text-4xl font-bold mb-6">
+          Perubahan di <span class="text-green-200">Hadapan</span>
+        </h3>
+        <p class="text-xl mb-8 text-green-100">
+          Mulai berbagi kebaikan hari ini. Setiap donasi Anda adalah harapan
+          baru bagi mereka yang membutuhkan.
+        </p>
+        <button
+          class="bg-white text-green-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-green-50 transition-all transform hover:scale-105"
+        >
+          Mulai Berdonasi
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak" class="bg-gray-800 text-white py-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- About Us -->
+          <div id="tentang">
+            <h3 class="text-xl font-bold mb-4">Tentang Kami</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors"
+                  >Visi dan Misi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors"
+                  >Kontribusi SDGs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors"
+                  >Tim Developer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors"
+                  >Bantuan</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Us -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">Hubungi Kami</h3>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-3 text-pink-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.017 11.215c-3.501-2.004-6.728-3.954-9.648-5.849l4.4-3.932c.533-.477 1.21-.734 1.909-.734h9.053c.699 0 1.376.257 1.909.734l4.4 3.932c-2.92 1.895-6.147 3.845-9.648 5.849-.302.173-.685.173-.987 0-.302-.173-.685-.173-.987 0z"
+                  />
+                </svg>
+                <span class="text-gray-300">@darikita</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-3 text-blue-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  />
+                </svg>
+                <span class="text-gray-300">DariKita</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-3 text-red-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <span class="text-gray-300">darikita@gmail.com</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-3 text-green-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
+                  />
+                </svg>
+                <span class="text-gray-300">+62 812-3456-7890</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Logo and Description -->
+          <div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-2xl font-bold text-green-400">DARIKITA</span>
+            </div>
+            <p class="text-gray-300 mb-4">
+              Platform donasi terpercaya yang menghubungkan kebaikan hati Anda
+              dengan mereka yang membutuhkan.
+            </p>
+            <p class="text-sm text-gray-400">
+              © 2024 DARIKITA. Semua hak dilindungi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("mobileMenuBtn")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobileMenu");
+          mobileMenu.classList.toggle("hidden");
+        });
+
+      // Counter animation
+      function animateCounter(element, target, duration = 2000) {
+        let start = 0;
+        const increment = target / (duration / 16);
+
+        function updateCounter() {
+          start += increment;
+          if (start < target) {
+            if (target >= 1000000) {
+              element.textContent = (start / 1000000).toFixed(1) + "M";
+            } else if (target >= 1000) {
+              element.textContent = (start / 1000).toFixed(0) + "K";
+            } else {
+              element.textContent = Math.floor(start).toLocaleString();
+            }
+            requestAnimationFrame(updateCounter);
+          } else {
+            if (target >= 1000000000) {
+              element.textContent =
+                "Rp " + (target / 1000000000).toFixed(1) + "M";
+            } else if (target >= 1000000) {
+              element.textContent = (target / 1000000).toFixed(1) + "M";
+            } else if (target >= 1000) {
+              element.textContent = (target / 1000).toFixed(0) + "K";
+            } else {
+              element.textContent = target.toLocaleString();
+            }
+          }
+        }
+        updateCounter();
+      }
+
+      // Intersection Observer for counter animation
+      const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const counter = entry.target;
+            const target = parseInt(counter.getAttribute("data-target"));
+            animateCounter(counter, target);
+            counterObserver.unobserve(counter);
+          }
+        });
+      });
+
+      // Observe all counters
+      document.querySelectorAll(".counter").forEach((counter) => {
+        counterObserver.observe(counter);
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Donation button functionality
+      document.querySelectorAll("button").forEach((button) => {
+        if (button.textContent.includes("Donasi")) {
+          button.addEventListener("click", function () {
+            alert(
+              "Demo: Terima kasih atas niat baik Anda!\n\nUntuk implementasi sesungguhnya, integrasikan dengan sistem pembayaran dan Clerk.com di environment development Anda."
+            );
+          });
+        }
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'986cd3b720a9ea85',t:'MTc1OTE2MzAyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
