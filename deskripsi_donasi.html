@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bantuan Pendidikan Anak Bangsa - DARIKITA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        box-sizing: border-box;
+      }
+
+      .gradient-bg {
+        background: linear-gradient(
+          135deg,
+          #f0f9f0 0%,
+          #e8f5e8 50%,
+          #d4f1d4 100%
+        );
+      }
+
+      .card-hover:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .fade-in {
+        animation: fadeIn 0.8s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .progress-bar {
+        background: linear-gradient(90deg, #22c55e 0%, #16a34a 100%);
+        transition: width 1s ease-out;
+      }
+
+      .share-btn:hover {
+        transform: translateY(-2px);
+      }
+
+      .update-item {
+        border-left: 4px solid #22c55e;
+      }
+
+      .recommendation-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Navbar -->
+    <nav class="bg-white shadow-lg sticky top-0 z-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <!-- Logo -->
+          <div class="flex items-center">
+            <div class="flex-shrink-0 flex items-center">
+              <div
+                class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-2xl font-bold text-green-600">DARIKITA</span>
+            </div>
+          </div>
+
+          <!-- Desktop Menu -->
+          <div class="hidden md:block">
+            <div class="ml-10 flex items-baseline space-x-8">
+              <a
+                href="#tentang"
+                class="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                >Tentang Kami</a
+              >
+              <a
+                href="#kontak"
+                class="text-gray-700 hover:text-green-600 px-3 py-2 text-sm font-medium transition-colors"
+                >Kontak</a
+              >
+              <a
+                href="#"
+                class="bg-green-500 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-green-600 transition-colors"
+                >Masuk</a
+              >
+            </div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden">
+            <button
+              id="mobileMenuBtn"
+              class="text-gray-700 hover:text-green-600 focus:outline-none"
+            >
+              <svg
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="md:hidden hidden bg-white border-t">
+        <div class="px-2 pt-2 pb-3 space-y-1">
+          <a
+            href="#tentang"
+            class="block px-3 py-2 text-gray-700 hover:text-green-600 transition-colors"
+            >Tentang Kami</a
+          >
+          <a
+            href="#kontak"
+            class="block px-3 py-2 text-gray-700 hover:text-green-600 transition-colors"
+            >Kontak</a
+          >
+          <a
+            href="#"
+            class="block px-3 py-2 bg-green-500 text-white rounded-lg hover:bg-green-600 transition-colors"
+            >Masuk</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="min-h-screen py-8">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Breadcrumb -->
+        <nav class="flex mb-8 fade-in" aria-label="Breadcrumb">
+          <ol class="inline-flex items-center space-x-1 md:space-x-3">
+            <li class="inline-flex items-center">
+              <a
+                href="#"
+                class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-green-600"
+              >
+                <svg
+                  class="w-4 h-4 mr-2"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"
+                  ></path>
+                </svg>
+                Beranda
+              </a>
+            </li>
+            <li>
+              <div class="flex items-center">
+                <svg
+                  class="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <a
+                  href="#"
+                  class="ml-1 text-sm font-medium text-gray-700 hover:text-green-600 md:ml-2"
+                  >Donasi</a
+                >
+              </div>
+            </li>
+            <li aria-current="page">
+              <div class="flex items-center">
+                <svg
+                  class="w-6 h-6 text-gray-400"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                <span class="ml-1 text-sm font-medium text-gray-500 md:ml-2"
+                  >Bantuan Pendidikan</span
+                >
+              </div>
+            </li>
+          </ol>
+        </nav>
+
+        <!-- Main Content Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          <!-- Left Column - Content -->
+          <div class="lg:col-span-2 space-y-8">
+            <!-- Campaign Image -->
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden fade-in">
+              <div class="relative">
+                <!-- Using SVG instead of img for better compatibility -->
+                <div
+                  class="w-full h-80 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 flex items-center justify-center"
+                >
+                  <svg
+                    class="w-32 h-32 text-white opacity-80"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="1"
+                      d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    ></path>
+                  </svg>
+                </div>
+                <div class="absolute top-4 left-4">
+                  <span
+                    class="bg-green-500 text-white px-3 py-1 rounded-full text-sm font-semibold"
+                    >Aktif</span
+                  >
+                </div>
+                <div class="absolute top-4 right-4">
+                  <span
+                    class="bg-white bg-opacity-90 text-gray-800 px-3 py-1 rounded-full text-sm font-semibold"
+                    >Pendidikan</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <!-- Campaign Details -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 fade-in">
+              <div class="mb-6">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
+                  Bantuan Pendidikan Anak Bangsa
+                </h1>
+                <div class="flex items-center text-gray-600 mb-4">
+                  <svg
+                    class="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                    ></path>
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                    ></path>
+                  </svg>
+                  <span>Yayasan Pendidikan Nusantara • Jakarta, Indonesia</span>
+                </div>
+                <div class="flex items-center text-gray-600">
+                  <svg
+                    class="w-5 h-5 mr-2"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+                    ></path>
+                  </svg>
+                  <span>Dibuat 15 hari yang lalu • Berakhir dalam 45 hari</span>
+                </div>
+              </div>
+
+              <!-- Description -->
+              <div class="prose max-w-none">
+                <h2 class="text-2xl font-bold text-gray-800 mb-4">
+                  Deskripsi Program
+                </h2>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  Program "Bantuan Pendidikan Anak Bangsa" adalah inisiatif
+                  mulia yang bertujuan untuk memberikan akses pendidikan
+                  berkualitas kepada anak-anak kurang mampu di seluruh
+                  Indonesia. Melalui program ini, kami berkomitmen untuk
+                  memastikan bahwa setiap anak memiliki kesempatan yang sama
+                  untuk meraih masa depan yang cerah melalui pendidikan.
+                </p>
+
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Tujuan Program
+                </h3>
+                <ul class="list-disc list-inside text-gray-700 mb-6 space-y-2">
+                  <li>
+                    Memberikan beasiswa pendidikan untuk 500 anak kurang mampu
+                  </li>
+                  <li>
+                    Menyediakan perlengkapan sekolah lengkap (tas, buku, alat
+                    tulis)
+                  </li>
+                  <li>
+                    Membangun fasilitas belajar yang layak di daerah terpencil
+                  </li>
+                  <li>
+                    Melatih guru-guru lokal untuk meningkatkan kualitas
+                    pengajaran
+                  </li>
+                  <li>
+                    Memberikan akses internet dan teknologi untuk pembelajaran
+                    digital
+                  </li>
+                </ul>
+
+                <h3 class="text-xl font-bold text-gray-800 mb-3">
+                  Dampak yang Diharapkan
+                </h3>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                  Dengan dukungan Anda, kami yakin dapat menciptakan perubahan
+                  positif yang berkelanjutan. Setiap rupiah yang terkumpul akan
+                  langsung disalurkan untuk:
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                  <div class="bg-green-50 p-4 rounded-lg">
+                    <div class="flex items-center mb-2">
+                      <div
+                        class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center mr-3"
+                      >
+                        <span class="text-white font-bold text-sm">1</span>
+                      </div>
+                      <h4 class="font-semibold text-gray-800">
+                        Beasiswa Pendidikan
+                      </h4>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                      Rp 60.000.000 untuk beasiswa 500 anak selama 1 tahun
+                    </p>
+                  </div>
+                  <div class="bg-blue-50 p-4 rounded-lg">
+                    <div class="flex items-center mb-2">
+                      <div
+                        class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center mr-3"
+                      >
+                        <span class="text-white font-bold text-sm">2</span>
+                      </div>
+                      <h4 class="font-semibold text-gray-800">
+                        Perlengkapan Sekolah
+                      </h4>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                      Rp 25.000.000 untuk tas, buku, dan alat tulis
+                    </p>
+                  </div>
+                  <div class="bg-purple-50 p-4 rounded-lg">
+                    <div class="flex items-center mb-2">
+                      <div
+                        class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mr-3"
+                      >
+                        <span class="text-white font-bold text-sm">3</span>
+                      </div>
+                      <h4 class="font-semibold text-gray-800">
+                        Fasilitas Belajar
+                      </h4>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                      Rp 10.000.000 untuk renovasi dan pembangunan
+                    </p>
+                  </div>
+                  <div class="bg-orange-50 p-4 rounded-lg">
+                    <div class="flex items-center mb-2">
+                      <div
+                        class="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center mr-3"
+                      >
+                        <span class="text-white font-bold text-sm">4</span>
+                      </div>
+                      <h4 class="font-semibold text-gray-800">
+                        Pelatihan Guru
+                      </h4>
+                    </div>
+                    <p class="text-sm text-gray-600">
+                      Rp 5.000.000 untuk workshop dan sertifikasi
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Updates Section -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 fade-in">
+              <h2 class="text-2xl font-bold text-gray-800 mb-6">
+                Update Terbaru
+              </h2>
+              <div class="space-y-6">
+                <div
+                  class="update-item pl-6 pb-6 border-b border-gray-200 last:border-b-0"
+                >
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-3 h-3 bg-green-500 rounded-full mr-3 -ml-8"
+                    ></div>
+                    <span class="text-sm text-gray-500">2 hari yang lalu</span>
+                  </div>
+                  <h3 class="font-semibold text-gray-800 mb-2">
+                    Pencairan Dana Tahap Pertama
+                  </h3>
+                  <p class="text-gray-700">
+                    Alhamdulillah, dana sebesar Rp 30.000.000 telah berhasil
+                    dicairkan dan disalurkan untuk pembelian perlengkapan
+                    sekolah 200 anak di Jawa Tengah dan Jawa Timur. Tim lapangan
+                    kami sedang mendistribusikan tas, buku, dan alat tulis
+                    kepada anak-anak yang membutuhkan.
+                  </p>
+                </div>
+                <div
+                  class="update-item pl-6 pb-6 border-b border-gray-200 last:border-b-0"
+                >
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-3 h-3 bg-blue-500 rounded-full mr-3 -ml-8"
+                    ></div>
+                    <span class="text-sm text-gray-500">5 hari yang lalu</span>
+                  </div>
+                  <h3 class="font-semibold text-gray-800 mb-2">
+                    Kunjungan Lapangan ke Sekolah Mitra
+                  </h3>
+                  <p class="text-gray-700">
+                    Tim DARIKITA telah melakukan kunjungan ke 5 sekolah mitra di
+                    daerah Sukabumi dan Garut. Kami melakukan assessment
+                    kebutuhan dan memastikan bahwa bantuan yang diberikan tepat
+                    sasaran dan sesuai dengan kebutuhan anak-anak.
+                  </p>
+                </div>
+                <div
+                  class="update-item pl-6 pb-6 border-b border-gray-200 last:border-b-0"
+                >
+                  <div class="flex items-center mb-3">
+                    <div
+                      class="w-3 h-3 bg-purple-500 rounded-full mr-3 -ml-8"
+                    ></div>
+                    <span class="text-sm text-gray-500"
+                      >1 minggu yang lalu</span
+                    >
+                  </div>
+                  <h3 class="font-semibold text-gray-800 mb-2">
+                    Target 50% Tercapai!
+                  </h3>
+                  <p class="text-gray-700">
+                    Terima kasih kepada semua donatur yang telah berpartisipasi!
+                    Kami telah mencapai 45% dari target dana. Mari bersama-sama
+                    mencapai target 100% agar lebih banyak anak yang dapat
+                    merasakan manfaat program ini.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column - Donation Info -->
+          <div class="lg:col-span-1">
+            <div
+              class="bg-white rounded-2xl shadow-xl p-8 sticky top-24 fade-in"
+            >
+              <!-- Progress -->
+              <div class="mb-8">
+                <div class="flex justify-between items-center mb-4">
+                  <span class="text-sm font-medium text-gray-600"
+                    >Dana Terkumpul</span
+                  >
+                  <span class="text-sm font-medium text-gray-600">45%</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-3 mb-4">
+                  <div
+                    class="progress-bar h-3 rounded-full"
+                    style="width: 45%"
+                  ></div>
+                </div>
+                <div class="space-y-2">
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Terkumpul:</span>
+                    <span class="text-sm font-semibold text-green-600"
+                      >Rp 45.200.000</span
+                    >
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Target:</span>
+                    <span class="text-sm font-semibold text-gray-800"
+                      >Rp 100.000.000</span
+                    >
+                  </div>
+                  <div class="flex justify-between">
+                    <span class="text-sm text-gray-600">Sisa:</span>
+                    <span class="text-sm font-semibold text-blue-600"
+                      >Rp 54.800.000</span
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Stats -->
+              <div class="grid grid-cols-2 gap-4 mb-8">
+                <div class="text-center p-4 bg-green-50 rounded-xl">
+                  <div class="text-2xl font-bold text-green-600">1,247</div>
+                  <div class="text-sm text-gray-600">Donatur</div>
+                </div>
+                <div class="text-center p-4 bg-blue-50 rounded-xl">
+                  <div class="text-2xl font-bold text-blue-600">45</div>
+                  <div class="text-sm text-gray-600">Hari Tersisa</div>
+                </div>
+              </div>
+
+              <!-- Donation Button -->
+              <button
+                id="donateBtn"
+                class="w-full bg-green-500 text-white py-4 px-6 rounded-xl font-semibold text-lg hover:bg-green-600 transition-colors mb-4"
+              >
+                Donasi Sekarang
+              </button>
+
+              <!-- Share Buttons -->
+              <div class="mb-6">
+                <h3 class="text-sm font-semibold text-gray-700 mb-3">
+                  Bagikan Campaign
+                </h3>
+                <div class="grid grid-cols-4 gap-2">
+                  <button
+                    class="share-btn bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition-all"
+                  >
+                    <svg
+                      class="w-5 h-5 mx-auto"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="share-btn bg-blue-800 text-white p-3 rounded-lg hover:bg-blue-900 transition-all"
+                  >
+                    <svg
+                      class="w-5 h-5 mx-auto"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="share-btn bg-green-500 text-white p-3 rounded-lg hover:bg-green-600 transition-all"
+                  >
+                    <svg
+                      class="w-5 h-5 mx-auto"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
+                      />
+                    </svg>
+                  </button>
+                  <button
+                    class="share-btn bg-gray-600 text-white p-3 rounded-lg hover:bg-gray-700 transition-all"
+                  >
+                    <svg
+                      class="w-5 h-5 mx-auto"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.367 2.684 3 3 0 00-5.367-2.684z"
+                      ></path>
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Organizer Info -->
+              <div class="border-t pt-6">
+                <h3 class="text-sm font-semibold text-gray-700 mb-3">
+                  Penyelenggara
+                </h3>
+                <div class="flex items-center">
+                  <div
+                    class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center mr-3"
+                  >
+                    <span class="text-white font-bold">YPN</span>
+                  </div>
+                  <div>
+                    <div class="font-semibold text-gray-800">
+                      Yayasan Pendidikan Nusantara
+                    </div>
+                    <div class="text-sm text-gray-600">
+                      Terverifikasi • 15 campaign
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Recommendations Section -->
+        <div class="fade-in">
+          <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">
+            Rekomendasi Donasi Lainnya
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Recommendation Card 1 -->
+            <div
+              class="recommendation-card bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center"
+              >
+                <svg
+                  class="w-20 h-20 text-white opacity-80"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Bantuan Pangan untuk Keluarga Prasejahtera
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                  Memberikan bantuan sembako untuk 1000 keluarga kurang mampu di
+                  seluruh Indonesia...
+                </p>
+                <div class="mb-4">
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-gray-600">Terkumpul</span>
+                    <span class="font-semibold">67%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      class="bg-green-500 h-2 rounded-full"
+                      style="width: 67%"
+                    ></div>
+                  </div>
+                  <div class="flex justify-between text-sm mt-2">
+                    <span class="text-green-600 font-semibold"
+                      >Rp 67.500.000</span
+                    >
+                    <span class="text-gray-600">dari Rp 100.000.000</span>
+                  </div>
+                </div>
+                <button
+                  class="w-full bg-green-500 text-white py-2 px-4 rounded-lg hover:bg-green-600 transition-colors"
+                >
+                  Donasi Sekarang
+                </button>
+              </div>
+            </div>
+
+            <!-- Recommendation Card 2 -->
+            <div
+              class="recommendation-card bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center"
+              >
+                <svg
+                  class="w-20 h-20 text-white opacity-80"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                    d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+                  ></path>
+                </svg>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Pembangunan Rumah Singgah Anak Jalanan
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                  Membangun tempat tinggal sementara yang aman dan nyaman untuk
+                  anak-anak jalanan...
+                </p>
+                <div class="mb-4">
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-gray-600">Terkumpul</span>
+                    <span class="font-semibold">23%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      class="bg-blue-500 h-2 rounded-full"
+                      style="width: 23%"
+                    ></div>
+                  </div>
+                  <div class="flex justify-between text-sm mt-2">
+                    <span class="text-blue-600 font-semibold"
+                      >Rp 34.500.000</span
+                    >
+                    <span class="text-gray-600">dari Rp 150.000.000</span>
+                  </div>
+                </div>
+                <button
+                  class="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
+                >
+                  Donasi Sekarang
+                </button>
+              </div>
+            </div>
+
+            <!-- Recommendation Card 3 -->
+            <div
+              class="recommendation-card bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300"
+            >
+              <div
+                class="h-48 bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center"
+              >
+                <svg
+                  class="w-20 h-20 text-white opacity-80"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="1"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+              <div class="p-6">
+                <h3 class="text-xl font-bold text-gray-800 mb-2">
+                  Bantuan Kesehatan untuk Lansia
+                </h3>
+                <p class="text-gray-600 text-sm mb-4">
+                  Program pemeriksaan kesehatan gratis dan pemberian obat-obatan
+                  untuk lansia kurang mampu...
+                </p>
+                <div class="mb-4">
+                  <div class="flex justify-between text-sm mb-2">
+                    <span class="text-gray-600">Terkumpul</span>
+                    <span class="font-semibold">89%</span>
+                  </div>
+                  <div class="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      class="bg-purple-500 h-2 rounded-full"
+                      style="width: 89%"
+                    ></div>
+                  </div>
+                  <div class="flex justify-between text-sm mt-2">
+                    <span class="text-purple-600 font-semibold"
+                      >Rp 44.500.000</span
+                    >
+                    <span class="text-gray-600">dari Rp 50.000.000</span>
+                  </div>
+                </div>
+                <button
+                  class="w-full bg-purple-500 text-white py-2 px-4 rounded-lg hover:bg-purple-600 transition-colors"
+                >
+                  Donasi Sekarang
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="kontak" class="bg-gray-800 text-white py-12 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- About Us -->
+          <div id="tentang">
+            <h3 class="text-xl font-bold mb-4">Tentang Kami</h3>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors"
+                  >Visi dan Misi</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors"
+                  >Kontribusi SDGs</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors"
+                  >Tim Developer</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="text-gray-300 hover:text-white transition-colors"
+                  >Bantuan</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Us -->
+          <div>
+            <h3 class="text-xl font-bold mb-4">Hubungi Kami</h3>
+            <div class="space-y-3">
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-3 text-pink-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M12.017 11.215c-3.501-2.004-6.728-3.954-9.648-5.849l4.4-3.932c.533-.477 1.21-.734 1.909-.734h9.053c.699 0 1.376.257 1.909.734l4.4 3.932c-2.92 1.895-6.147 3.845-9.648 5.849-.302.173-.685.173-.987 0-.302-.173-.685-.173-.987 0z"
+                  />
+                </svg>
+                <span class="text-gray-300">@darikita</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-3 text-blue-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"
+                  />
+                </svg>
+                <span class="text-gray-300">DariKita</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-3 text-red-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"
+                  />
+                </svg>
+                <span class="text-gray-300">darikita@gmail.com</span>
+              </div>
+              <div class="flex items-center">
+                <svg
+                  class="w-5 h-5 mr-3 text-green-400"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"
+                  />
+                </svg>
+                <span class="text-gray-300">+62 812-3456-7890</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Logo and Description -->
+          <div>
+            <div class="flex items-center mb-4">
+              <div
+                class="w-10 h-10 bg-green-500 rounded-lg flex items-center justify-center mr-3"
+              >
+                <svg
+                  class="w-6 h-6 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  ></path>
+                </svg>
+              </div>
+              <span class="text-2xl font-bold text-green-400">DARIKITA</span>
+            </div>
+            <p class="text-gray-300 mb-4">
+              Platform donasi terpercaya yang menghubungkan kebaikan hati Anda
+              dengan mereka yang membutuhkan.
+            </p>
+            <p class="text-sm text-gray-400">
+              © 2024 DARIKITA. Semua hak dilindungi.
+            </p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu toggle
+      document
+        .getElementById("mobileMenuBtn")
+        .addEventListener("click", function () {
+          const mobileMenu = document.getElementById("mobileMenu");
+          mobileMenu.classList.toggle("hidden");
+        });
+
+      // Donate button click
+      document
+        .getElementById("donateBtn")
+        .addEventListener("click", function () {
+          alert("Demo: Mengarahkan ke halaman pilih nominal donasi...");
+        });
+
+      // Share buttons
+      document.querySelectorAll(".share-btn").forEach((btn, index) => {
+        btn.addEventListener("click", function () {
+          const platforms = ["Twitter", "Facebook", "WhatsApp", "Link"];
+          alert(`Demo: Membagikan campaign ke ${platforms[index]}...`);
+        });
+      });
+
+      // Recommendation cards
+      document
+        .querySelectorAll(".recommendation-card button")
+        .forEach((btn) => {
+          btn.addEventListener("click", function () {
+            alert("Demo: Mengarahkan ke detail campaign lainnya...");
+          });
+        });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Animate progress bar on load
+      window.addEventListener("load", function () {
+        const progressBar = document.querySelector(".progress-bar");
+        progressBar.style.width = "0%";
+        setTimeout(() => {
+          progressBar.style.width = "45%";
+        }, 500);
+      });
+    </script>
+    <script>
+      (function () {
+        function c() {
+          var b = a.contentDocument || a.contentWindow.document;
+          if (b) {
+            var d = b.createElement("script");
+            d.innerHTML =
+              "window.__CF$cv$params={r:'988a9af50748b5e7',t:'MTc1OTQ3NTI3NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+            b.getElementsByTagName("head")[0].appendChild(d);
+          }
+        }
+        if (document.body) {
+          var a = document.createElement("iframe");
+          a.height = 1;
+          a.width = 1;
+          a.style.position = "absolute";
+          a.style.top = 0;
+          a.style.left = 0;
+          a.style.border = "none";
+          a.style.visibility = "hidden";
+          document.body.appendChild(a);
+          if ("loading" !== document.readyState) c();
+          else if (window.addEventListener)
+            document.addEventListener("DOMContentLoaded", c);
+          else {
+            var e = document.onreadystatechange || function () {};
+            document.onreadystatechange = function (b) {
+              e(b);
+              "loading" !== document.readyState &&
+                ((document.onreadystatechange = e), c());
+            };
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
